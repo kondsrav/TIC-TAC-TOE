@@ -42,3 +42,9 @@ jobs:
         run: trivy image kondsrav/tic-tac-toe:latest > trivyimagedeploy.txt
       - name: Deploy to container
         run: docker run -d --name game -p 3000:3000 kondsrav/tic-tac-toe:latest
+
+      - name: update kubeconfig
+        run: aws eks --region us-east-1 update-kubeconfig --name EKS_CLOUD
+
+      - name: deploy to kubernetes
+        run: kubectl apply -f deployment-service.yml
