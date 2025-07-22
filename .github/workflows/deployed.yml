@@ -32,7 +32,7 @@ jobs:
 
       - name: Image scan
         run: trivy image kondsrav/tic-tac-toe:latest > trivyimage.txt
-deploy:
+  deploy:
    needs: build-analyze-scan
    runs-on: [self-hosted]
    steps:
