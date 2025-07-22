@@ -41,4 +41,4 @@ deploy:
       - name: Image scan
         run: trivy image kondsrav/tic-tac-toe:latest > trivyimagedeploy.txt
       - name: Deploy to container
-        run: docker run -d --name game -p 3000:3000 kondsrav/tic-tac-toe:
+        run: docker run -d --name game -p 3000:3000 kondsrav/tic-tac-toe:latest
